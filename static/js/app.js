@@ -36,8 +36,9 @@ button.on("click", function(event) {
     deleteTbody();
 
     var filteredData = tableData;
-    var dateInput = d3.select("#datetime").property("value");
     var inputId = document.getElementsByClassName("form-control");
+    var dateInput = d3.select("#datetime").property("value");
+    
 
     if (dateInput.trim() === "") {
         //This will display the entire database if the date field has no date
