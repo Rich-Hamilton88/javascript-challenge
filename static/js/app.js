@@ -1,7 +1,6 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
 // function that will display UFO sightings
 
 function tableDisplay(ufosightings) {
@@ -32,9 +31,13 @@ var button = d3.select("#filter-btn");
 //Filtering the database and displaying the content
 
 button.on("click", function(event) {
+    
     d3.event.preventDefault();
     deleteTbody();
+
+    var filteredData = tableData;
     var dateInput = d3.select("#datetime").property("value");
+    var inputId = document.getElementsByClassName("form-control");
 
     if (dateInput.trim() === "") {
         //This will display the entire database if the date field has no date
@@ -44,16 +47,20 @@ button.on("click", function(event) {
         //otherwise will display the filtered dataset
         var filteredData = tableData.filter(ufosightings =>
             ufosightings.datatime === dateInput.trim());
+      
     };
 
     //Here we will display a message that will advise if no record can be found
-    if (filteredData.length == 0) {
-        d3.select("tbody")
+        if (filteredData.length == 0) {
+            d3.select("tbody")
             .append("tr")
             .append("td")
                 .attr("colspan", 7)
                 .html("<h3>Sorry, No Records could be found.</h3>");
-    };
+        };
+
+
+// display the database
     console.log(filteredData);
     tableDisplay(filteredData);
-})
+});
