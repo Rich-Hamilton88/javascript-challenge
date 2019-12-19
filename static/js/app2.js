@@ -13,7 +13,7 @@ function tableDisplay(ufosightings) {
   });
 };
 
-// clear the table for new data
+// function that will clear the table data for new data
 function deleteTbody() {
   d3.select("tbody")
     .selectAll("tr").remove()
