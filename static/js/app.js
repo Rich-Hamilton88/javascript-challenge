@@ -36,8 +36,10 @@ button.on("click", function(event) {
     deleteTbody();
 
     var filteredData = tableData;
-    var inputId = document.getElementsByClassName("form-control");
     var dateInput = d3.select("#datetime").property("value");
+    
+
+    //console.log(dateInput);
     
 
     if (dateInput.trim() === "") {
@@ -48,7 +50,7 @@ button.on("click", function(event) {
         //otherwise will display the filtered dataset
         var filteredData = tableData.filter(ufosightings =>
             ufosightings.datatime === dateInput.trim());
-      
+    
     };
 
     //Here we will display a message that will advise if no record can be found
